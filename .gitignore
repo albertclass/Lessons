@@ -27,3 +27,10 @@
 *.exe
 *.out
 *.app
+
+# custom defined directory
+/build
+/Win32
+
+# custom defined files
+~$*.pptx

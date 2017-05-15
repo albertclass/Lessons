@@ -1,0 +1,3 @@
+[submodule "curses"]
+	path = curses
+	url = git@github.com:albertclass/PDCurses.git
