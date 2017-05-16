@@ -10,11 +10,11 @@ configure_file(
     "${PROJECT_SOURCE_DIR}/advance c++/framework/config.h"
 )
 
-set (OUT_DIR ${CMAKE_BINARY_DIR}/Bin)
-set (OBJ_DIR ${CMAKE_BINARY_DIR}/Obj)
+set (RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Bin/$<$<CONFIG>>)
+set (LIBARAY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Lib/$<$<CONFIG>>)
 
-message("${OUT_DIR}")
-message("${OBJ_DIR}")
+message("${RUNTIME_OUTPUT_DIRECTORY}")
+message("${LIBARAY_OUTPUT_DIRECTORY}")
 
 include_directories("curses")
 
