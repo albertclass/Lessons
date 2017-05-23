@@ -1,4 +1,5 @@
 #include "header.h"
+extern void do_lesson( int rows, int cols );
 
 int main( int argc, char *argv[] )
 {
