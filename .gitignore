@@ -8,6 +8,10 @@
 *.gch
 *.pch
 
+# link tmp
+*.ilk
+*.pdb
+
 # Compiled Dynamic libraries
 *.so
 *.dylib
@@ -34,5 +38,6 @@
 
 # custom defined files
 ~$*.pptx
+bin
 obj
 prj

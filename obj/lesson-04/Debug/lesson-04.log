@@ -1,7 +1,0 @@
-﻿  sample.cpp
-d:\github\lessons\curses\curses.h(215): warning C4005: 'MOUSE_MOVED': macro redefinition
-  c:\program files (x86)\windows kits\8.1\include\um\wincon.h(118): note: see previous definition of 'MOUSE_MOVED'
-d:\github\lessons\advance c++\lesson-04\sample.cpp(15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-  lesson-04.vcxproj -> D:\GitHub\Lessons\advance c++\prj\lesson-04\..\..\bin\Debug\lesson-04.exe
-  lesson-04.vcxproj -> ..\..\bin\Debug\lesson-04.pdb (Partial PDB)
