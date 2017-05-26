@@ -1,6 +1,0 @@
-﻿  sample.cpp
-d:\github\lessons\curses\curses.h(215): warning C4005: 'MOUSE_MOVED': macro redefinition
-  c:\program files (x86)\windows kits\8.1\include\um\wincon.h(118): note: see previous definition of 'MOUSE_MOVED'
-d:\github\lessons\advance c++\lesson-02\sample.cpp(66): warning C4305: 'initializing': truncation from 'double' to 'float'
-  lesson-02.vcxproj -> D:\GitHub\Lessons\advance c++\prj\lesson-02\..\..\bin\Debug\lesson-02.exe
-  lesson-02.vcxproj -> ..\..\bin\Debug\lesson-02.pdb (Partial PDB)

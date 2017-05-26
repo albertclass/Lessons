@@ -1,100 +1,54 @@
 #include "header.h"
 #include <cstdlib>
 
-#define BIT_CHK( V, N ) (((unsigned char*)V)[N>>3] & (1 << (7-(N&7))))
-#define BIT_SET( V, N ) (((unsigned char*)V)[N>>3] |= (1 << (7-(N&7))))
-#define BIT_CLR( V, N ) (((unsigned char*)V)[N>>3] &= (~(1 << (7-(N&7)))))
 
-void print_bit( void* data, int space[] )
-{
-	int i = 0;
-	int n = 0;
-
-	while( space[i] )
-	{
-		addch( BIT_CHK(data, n) ? '1' : '0' );
-
-		if( space[i] == ++n )
-		{
-			addch( ' ' );
-			++i;
-		}
-	}
-}
-
-void printm( void* data, int s, int n )
-{
-	addstr( "M : " );
-	for( int i = s, c = 1; i < n; ++i, ++c )
-	{
-		if( BIT_CHK( data, i ) )
-		{
-			printw( "1/%u ", (1 << c) );
-		}
-	}
-}
 
 void do_lesson( int rows, int cols )
 {
-	printw( "FP Number\n" );
+	addstr( "数值转换\n" );
 
+	addstr( "\n----------------------\n" );
 	{
-		float i = 32.5;
-		int space[] = {1, 9, 32, 0};
-		// int space[] = {8, 16, 24, 32, 0};
+		addstr( "数据上溢\n" );
+		int n = 65536;
+		short s = (short)n;
 
-		unsigned char *p = (unsigned char*)&i;
-		unsigned char v[4] = { p[3], p[2], p[1], p[0] };
-
-		printw( "FLOAT : %f, %x\n", i, *(unsigned int*)&i );
-		printw( "BINARY : " );
-		print_bit( v, space );
-		addch('\n');
-
-		int exp = (((*(unsigned int*)&i) & 0x4fc00000) >> 23) - 127;
-		printw( "E : %d\n", exp );
-		printm( v, 9, 23 );
-		addch( '\n' );
-		printw( "N = M * 2 ^ %d\n", exp );
-		wait_key( 10 );
+		printw( "n = %11d, hex(%08x)\n", n, n );
+		printw( "s = %11d, hex(%08x)\n", s, s );
+		wait_key( 13 );
 	}
 
-
+	addstr( "\n----------------------\n" );
 	{
-		float i = 3.14169265354;
-		int space[] = {1, 9, 32, 0};
+		addstr( "数据下溢\n" );
+		int n = -65536;
+		short s = (short)n;
 
-		unsigned char *p = (unsigned char*)&i;
-		unsigned char v[4] = { p[3], p[2], p[1], p[0] };
-
-		printw( "FLOAT : %f, %x\n", i, *(unsigned int*)&i );
-		printw( "BINARY : " );
-		print_bit( v, space );
-		addch('\n');
-		int exp = (((*(unsigned int*)&i) & 0x4fc00000) >> 23) - 127;
-		printw( "E : %d\n", exp );
-		printm( v, 9, 23 );
-		addch( '\n' );
-		printw( "N = M * 2 ^ %d\n", exp );
-		wait_key( 10 );
+		printw( "n = %11d, hex(%08x)\n", n, n );
+		printw( "s = %11d, hex(%08x)\n", s, s );
+		wait_key( 13 );
 	}
 
-	addch( '\n' );
-	addstr( "---------\n" );
+	addstr( "\n----------------------\n" );
 	{
-		unsigned int i = 0x80000001;
+		addstr( "数据溢出 - 无符号转有符号\n" );
+		uint32_t n = 0x80000000;
+		 int32_t s = n;
 
-		unsigned int a = i >> 1;
-		unsigned int b = i << 1;
-
-		printw( "a = %08X, b = %08X\n", a, b );
-		
-		int j = 0x80000001;
-		int c = j << 1;
-		int d = j >> 1;
-
-		printw( "c = %08X, d = %08X\n", c, d );
-
-		wait_key( 10 );
+		printw( "n = %11u, hex(%08x)\n", n, n );
+		printw( "s = %11d, hex(%08x)\n", s, s );
+		wait_key( 13 );
 	}
+
+	addstr( "\n----------------------\n" );
+	{
+		addstr( "数据溢出 - 单精度转整型\n" );
+		float n = 4294967295 - 128;
+		uint32_t s = n;
+
+		printw( "n = %f, hex(%08x)\n", n, *(uint32_t*)&n );
+		printw( "s = %11u, hex(%08x)\n", s, s );
+		wait_key( 13 );
+	}
+
 }

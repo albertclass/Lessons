@@ -17,7 +17,9 @@ int main( int argc, char *argv[] )
 	nodelay( stdscr, 1 );
 	curs_set(0);
 	refresh();
+	scrollok( stdscr, true );
 
+	raw();
 	keypad( stdscr, TRUE );
 	mousemask( ALL_MOUSE_EVENTS, NULL );
 	int max_row, max_col;

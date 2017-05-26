@@ -1,7 +1,7 @@
 ﻿  lessons.cpp
   util.cpp
-d:\github\lessons\curses\curses.h(215): warning C4005: 'MOUSE_MOVED': macro redefinition (compiling source file ..\..\framework\util.cpp)
-  c:\program files (x86)\windows kits\8.1\include\um\wincon.h(118): note: see previous definition of 'MOUSE_MOVED' (compiling source file ..\..\framework\util.cpp)
-d:\github\lessons\curses\curses.h(215): warning C4005: 'MOUSE_MOVED': macro redefinition (compiling source file ..\..\framework\lessons.cpp)
-  c:\program files (x86)\windows kits\8.1\include\um\wincon.h(118): note: see previous definition of 'MOUSE_MOVED' (compiling source file ..\..\framework\lessons.cpp)
-  framework.vcxproj -> D:\GitHub\Lessons\advance c++\prj\framework\..\..\bin\Debug\framework.lib
+d:\github\lessons\curses\curses.h(215): warning C4005: 'MOUSE_MOVED': macro redefinition (compiling source file ..\framework\lessons.cpp)
+  c:\program files (x86)\windows kits\8.1\include\um\wincon.h(118): note: see previous definition of 'MOUSE_MOVED' (compiling source file ..\framework\lessons.cpp)
+d:\github\lessons\curses\curses.h(215): warning C4005: 'MOUSE_MOVED': macro redefinition (compiling source file ..\framework\util.cpp)
+  c:\program files (x86)\windows kits\8.1\include\um\wincon.h(118): note: see previous definition of 'MOUSE_MOVED' (compiling source file ..\framework\util.cpp)
+  framework.vcxproj -> D:\GitHub\Lessons\advance c++\prj\..\bin\Debug\framework.lib

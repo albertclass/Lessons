@@ -34,3 +34,5 @@
 
 # custom defined files
 ~$*.pptx
+obj
+prj

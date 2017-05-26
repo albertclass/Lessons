@@ -2,6 +2,10 @@
 #ifndef _UNIL_H_
 #define _UNIL_H_
 
+#define BIT_CHK( V, N ) (((unsigned char*)V)[N>>3] & (1 << (7-(N&7))))
+#define BIT_SET( V, N ) (((unsigned char*)V)[N>>3] |= (1 << (7-(N&7))))
+#define BIT_CLR( V, N ) (((unsigned char*)V)[N>>3] &= (~(1 << (7-(N&7)))))
+
 void wait_key( int key );
 
 ///
