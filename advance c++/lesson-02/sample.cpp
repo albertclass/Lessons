@@ -10,7 +10,7 @@ void do_lesson( int rows, int cols )
 	addstr( "\n----------------------\n" );
 	{
 		addstr( "数据上溢\n" );
-		int n = 65536;
+		int n = 65535;
 		short s = (short)n;
 
 		printw( "n = %11d, hex(%08x)\n", n, n );
@@ -20,8 +20,19 @@ void do_lesson( int rows, int cols )
 
 	addstr( "\n----------------------\n" );
 	{
-		addstr( "数据下溢\n" );
-		int n = -65536;
+		addstr( "数据下溢1\n" );
+		int n = -65537;
+		short s = (short)n;
+
+		printw( "n = %11d, hex(%08x)\n", n, n );
+		printw( "s = %11d, hex(%08x)\n", s, s );
+		wait_key( 13 );
+	}
+
+	addstr( "\n----------------------\n" );
+	{
+		addstr( "数据下溢2\n" );
+		int n = 0x80007fff;
 		short s = (short)n;
 
 		printw( "n = %11d, hex(%08x)\n", n, n );

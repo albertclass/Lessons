@@ -20,6 +20,7 @@ project "framework"
     kind "StaticLib"
     includedirs { "framework", "../curses" }
     implibdir "lib/%{cfg.buildcfg}"
+    systemversion "10.0.15063.0"
 
     files {
         "%{prj.name}/**.h",
@@ -47,8 +48,10 @@ project "framework"
         links { "stdc++" }
         defines { "LINUX64" }
 
-for idx=1, 4, 1 do
+for idx=1, 20, 1 do
     local prj = "lesson-"..string.format( "%02d", idx )
+    if not os.isdir(prj) then break end
+
     project( prj )
         print( prj )
 
@@ -56,6 +59,7 @@ for idx=1, 4, 1 do
         location "prj/%{prj.name}"
         includedirs { "framework", "../curses" }
         links { "framework", "pdcurses" }
+        systemversion "10.0.15063.0"
 
         files {
             "%{prj.name}/**.h",
