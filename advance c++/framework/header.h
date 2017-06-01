@@ -9,4 +9,6 @@
 
 #include "util.h"
 
+
+#include <string>
 #pragma execution_character_set("utf-8")
