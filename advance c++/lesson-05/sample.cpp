@@ -11,6 +11,7 @@ void stack_mem_sample()
 
 	strcpy( astr, "----------+----------+" );
 
+	printw( "\nstrcpy( astr, \"----------+----------+\" );\n\n" );
 	printw( "astr = %s\n", astr );
 	printw( "bstr = %s\n", bstr );
 
@@ -19,27 +20,24 @@ void stack_mem_sample()
 
 uintptr_t ret = 0;
 
-void stack_attack_ret()
+void stack_attack_ret( int i )
 {
-	char astr[] = "1234567890";
-	printw( "astr = %s\n", astr );
+	addstr( "call stack_attack_ret()" );
 
-	memcpy( astr + 0x78, &ret, sizeof(ret) );
+	memcpy( (char*)&i - sizeof(ret), &ret, sizeof(ret) );
 }
 
 void stack_attack()
 {
-	char astr[] = "stack_attack";
-	printw( "astr = %s\n", astr );
-
+	addstr( "call stack_attack()\n" );
 	wait_key( 13 );
 
-	stack_attack_ret();
+	stack_attack_ret( 0 );
 }
 
 void stack_overflow()
 {
-	char astr[] = "1234567890";
+	char astr[11] = "1234567890";
 	printw( "astr = %s\n", astr );
 
 	uintptr_t addr = (uintptr_t)stack_attack;
@@ -48,6 +46,7 @@ void stack_overflow()
 
 	memcpy( astr + 0x78, &addr, sizeof(addr) );
 
+	addstr( "now begin stack overflow attack\n" );
 	wait_key( 13 );
 }
 

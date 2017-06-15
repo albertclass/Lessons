@@ -5,15 +5,16 @@
 void do_lesson( int rows, int cols )
 {
 	printw( "数值比较\n" );
+	wait_key( 13 );
 
 	addstr( "\n----------------------\n" );
 	{
 		addstr( "有符号数比较有符号数\n" );
-		int32_t n = 65535;
-		int16_t m = 65535;
+		int32_t n = -1;
+		int16_t m = 32768;
 		
-		printw( "n = %11d, hex(%08x)\n", n, n );
-		printw( "m = %11d, hex(%08x)\n", m, m );
+		printw( "int32_t n = %11d, hex(%08x)\n", n, n );
+		printw( "int16_t m = %11d, hex(%08x)\n", m, m );
 
 		printw( "n %c m\n", n > m ? '>' : ( n < m ? '<' : '=' ) );
 		printw( "m %c n\n", m > n ? '>' : ( m < n ? '<' : '=' ) );
@@ -26,8 +27,8 @@ void do_lesson( int rows, int cols )
 		 int32_t n = -1;
 		uint16_t m = -1;
 
-		printw( "n = %11d, hex(%08x)\n", n, n );
-		printw( "m = %11d, hex(%08x)\n", m, m );
+		printw( " int32_t n = %11d, hex(%08x)\n", n, n );
+		printw( "uint16_t m = %11d, hex(%08x)\n", m, m );
 
 		printw( "n %c m\n", n > m ? '>' : ( n < m ? '<' : '=' ) );
 		printw( "m %c n\n", m > n ? '>' : ( m < n ? '<' : '=' ) );
@@ -36,47 +37,26 @@ void do_lesson( int rows, int cols )
 
 	addstr( "\n----------------------\n" );
 	{
-		addstr( "有符号数比较字面值 1\n" );
-		int16_t n = -1;
-
-		printw( "n = %11d, hex(%08x)\n", n, n );
-
-		printw( "n %c -1\n", n > -1 ? '>' : ( n < -1 ? '<' : '=' ) );
-		printw( "-1 %c n\n", -1 > n ? '>' : ( -1 < n ? '<' : '=' ) );
-		wait_key( 13 );
-	}
-
-	{
-		addstr( "有符号数比较字面值 2\n" );
-		int16_t n = -1;
-
-		printw( "n = %11d, hex(%08x)\n", n, n );
-
-		printw( "n %c 65537\n", n > 65537 ? '>' : ( n < 65537 ? '<' : '=' ) );
-		printw( "65537 %c n\n", 65537 > n ? '>' : ( 65537 < n ? '<' : '=' ) );
-		wait_key( 13 );
-	}
-
-	addstr( "\n----------------------\n" );
-	{
 		addstr( "无符号数比较字面值 1\n" );
-		uint16_t n = -1;
+		uint32_t n = 0;
 
-		printw( "n = %11d, hex(%08x)\n", n, n );
+		printw( "uint16_t n = %11u, hex(%08x)\n", n, n );
 
 		printw( "n %c -1\n", n > -1 ? '>' : ( n < -1 ? '<' : '=' ) );
 		printw( "-1 %c n\n", -1 > n ? '>' : ( -1 < n ? '<' : '=' ) );
 		wait_key( 13 );
 	}
+
+	addch('\n');
 
 	{
 		addstr( "无符号数比较字面值 2\n" );
-		uint16_t n = -1;
+		uint16_t n = 0;
 
-		printw( "n = %11d, hex(%08x)\n", n, n );
+		printw( " n = %11u, hex(%08x)\n", n, n );
 
-		printw( "n %c 65537\n", n > 65537 ? '>' : ( n < 65537 ? '<' : '=' ) );
-		printw( "65537 %c n\n", 65537 > n ? '>' : ( 65537 < n ? '<' : '=' ) );
+		printw( " n %c -1\n", n > -1 ? '>' : ( n < -1 ? '<' : '=' ) );
+		printw( "-1 %c  n\n", -1 > n ? '>' : ( -1 < n ? '<' : '=' ) );
 		wait_key( 13 );
 	}
 

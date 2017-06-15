@@ -1,42 +1,67 @@
 #include "header.h"
 #include <cstdlib>
 
-
-
 void do_lesson( int rows, int cols )
 {
 	addstr( "数值转换\n" );
 
 	addstr( "\n----------------------\n" );
 	{
-		addstr( "数据上溢\n" );
-		int n = 65535;
-		short s = (short)n;
+		addstr( "数据上溢 1\n" );
+		 int32_t n = 65538;
+		 int16_t s = ( int16_t)n;
+		uint16_t u = (uint16_t)n;
+		// movzx       eax,word ptr [rbp+4]  
+		// mov         word ptr [rbp+24h],ax  
 
-		printw( "n = %11d, hex(%08x)\n", n, n );
-		printw( "s = %11d, hex(%08x)\n", s, s );
+		printw( "  int32_t n = %11d, hex(%08x)\n", n, n );
+		printw( "( int16_t)n = %11d, hex(%08x)\n", s, s );
+		printw( "(uint16_t)n = %11u, hex(%08x)\n", u, u );
+
 		wait_key( 13 );
 	}
 
 	addstr( "\n----------------------\n" );
 	{
-		addstr( "数据下溢1\n" );
-		int n = -65537;
-		short s = (short)n;
+		addstr( "数据上溢 2\n" );
+		 int32_t n = -32769;
+		 int16_t s = ( int16_t)n;
+		uint16_t u = (uint16_t)n;
+		// movzx       eax,word ptr [rbp+4]  
+		// mov         word ptr [rbp+24h],ax  
 
-		printw( "n = %11d, hex(%08x)\n", n, n );
-		printw( "s = %11d, hex(%08x)\n", s, s );
+		printw( "  int32_t n = %11d, hex(%08x)\n", n, n );
+		printw( "( int16_t)n = %11d, hex(%08x)\n", s, s );
+		printw( "(uint16_t)n = %11u, hex(%08x)\n", u, u );
+
 		wait_key( 13 );
 	}
 
 	addstr( "\n----------------------\n" );
 	{
-		addstr( "数据下溢2\n" );
-		int n = 0x80007fff;
-		short s = (short)n;
+		addstr( "数据下溢 1\n" );
+		 int32_t n = -65537;
+		 int16_t s = (int16_t)n;
+		uint16_t u = (uint16_t)n;
+		// movzx       eax,word ptr [rbp+44h]  
+		// mov         word ptr [rbp+64h],ax  
 
-		printw( "n = %11d, hex(%08x)\n", n, n );
-		printw( "s = %11d, hex(%08x)\n", s, s );
+		printw( "  int32_t n = %11d, hex(%08x)\n", n, n );
+		printw( "( int16_t)n = %11d, hex(%08x)\n", s, s );
+		printw( "(uint16_t)n = %11u, hex(%08x)\n", u, u );
+		wait_key( 13 );
+	}
+
+	addstr( "\n----------------------\n" );
+	{
+		addstr( "数据下溢 2\n" );
+		 int32_t n = 0x80007fff;
+		 int16_t s = (int16_t)n;
+		uint16_t u = (uint16_t)n;
+
+		printw( "  int32_t n = %11d, hex(%08x)\n", n, n );
+		printw( "( int16_t)s = %11d, hex(%08x)\n", s, s );
+		printw( "(uint16_t)s = %11u, hex(%08x)\n", u, u );
 		wait_key( 13 );
 	}
 
@@ -46,19 +71,21 @@ void do_lesson( int rows, int cols )
 		uint32_t n = 0x80000000;
 		 int32_t s = n;
 
-		printw( "n = %11u, hex(%08x)\n", n, n );
-		printw( "s = %11d, hex(%08x)\n", s, s );
+		printw( "uint32_t n = %11u, hex(%08x)\n", n, n );
+		printw( "(int32_t)s = %11d, hex(%08x)\n", s, s );
 		wait_key( 13 );
 	}
 
 	addstr( "\n----------------------\n" );
 	{
 		addstr( "数据溢出 - 单精度转整型\n" );
-		float n = 4294967295 - 128;
-		uint32_t s = n;
+		float f = 4294967295 - 128;
+		uint32_t u = f;
+		 int32_t n = f;
 
-		printw( "n = %f, hex(%08x)\n", n, *(uint32_t*)&n );
-		printw( "s = %11u, hex(%08x)\n", s, s );
+		printw( "float f = %f, hex(%08x)\n", f, *(uint32_t*)&f );
+		printw( "(uint32_t)u = %11u, hex(%08x)\n", u, u );
+		printw( "( int32_t)n = %11d, hex(%08x)\n", n, n );
 		wait_key( 13 );
 	}
 
