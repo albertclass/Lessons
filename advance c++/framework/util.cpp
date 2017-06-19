@@ -86,3 +86,20 @@ size_t bin2hex( char* data, size_t size, char* out, size_t out_size, size_t flag
 	free( ptr );
 	return size_t( p - out );
 }
+
+void print_bit( void* data, int space[] )
+{
+	int i = 0;
+	int n = 0;
+
+	while( space[i] )
+	{
+		addch( BIT_CHK(data, n) ? '1' : '0' );
+
+		if( space[i] == ++n )
+		{
+			addch( ' ' );
+			++i;
+		}
+	}
+}

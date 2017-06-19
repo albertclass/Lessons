@@ -1,22 +1,5 @@
 #include "header.h"
 
-void print_bit( void* data, int space[] )
-{
-	int i = 0;
-	int n = 0;
-
-	while( space[i] )
-	{
-		addch( BIT_CHK(data, n) ? '1' : '0' );
-
-		if( space[i] == ++n )
-		{
-			addch( ' ' );
-			++i;
-		}
-	}
-}
-
 void printm( void* data, int s, int n )
 {
 	addstr( "M : " );

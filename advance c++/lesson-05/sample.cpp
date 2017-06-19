@@ -60,3 +60,5 @@ void do_lesson( int rows, int cols )
 	// 进行一次缓冲区溢出的攻击
 	stack_overflow();
 }
+
+// 使用C++栈检查参数来编译

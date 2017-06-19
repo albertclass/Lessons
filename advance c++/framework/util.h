@@ -23,5 +23,8 @@ void wait_key( int key );
 ///
 size_t bin2hex( char* data, size_t size, char* out, size_t out_size, size_t flags );
 
+/// 打印二进制
+void print_bit( void * data, int space[] );
+
 
 #endif // _UNIL_H_
