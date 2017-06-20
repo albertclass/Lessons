@@ -59,7 +59,7 @@ for idx=1, 20, 1 do
         location "prj/%{prj.name}"
         includedirs { "framework", "../curses" }
         links { "framework", "pdcurses" }
-        systemversion "10.0.15063.0"
+    	systemversion "10.0.15063.0"
 
         files {
             "%{prj.name}/**.h",
