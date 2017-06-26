@@ -24,7 +24,7 @@ void do_lesson( int rows, int cols )
 {
 	printw( "堆\n" );
 
-	printw( "开始调试，请准备好断点。\n“ " );
+	printw( "堆内存分配开始调试，请准备好断点。\n“ " );
 
 	wait_key( 13 );
 
@@ -89,6 +89,7 @@ void do_lesson( int rows, int cols )
 	new( pmA ) A();
 
 	((A*)pmA)->~A();
+	// 定位new一般会用于内存管理的一些类中
 
 	// free 空指针不会崩溃
 	free( pmA );

@@ -50,6 +50,7 @@ void do_lesson( int rows, int cols )
 	addstr( "\n----------------------\n" );
 	addstr( "浮点数示例 - 1\n" );
 	{
+		addstr( "浮点数的计算\n" );
 		float i = 32.5;
 		int space[] = {1, 9, 32, 0};
 		// int space[] = {8, 16, 24, 32, 0};
@@ -57,8 +58,9 @@ void do_lesson( int rows, int cols )
 		unsigned char *p = (unsigned char*)&i;
 		unsigned char v[4] = { p[3], p[2], p[1], p[0] };
 
-		printw( "FLOAT : %f, %x\n", i, *(unsigned int*)&i );
+		printw( "FLOAT : %f, %08x\n", i, *(unsigned int*)&i );
 		printw( "BINARY : " );
+		
 		print_bit( v, space );
 		addch('\n');
 

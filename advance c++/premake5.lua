@@ -48,9 +48,20 @@ project "framework"
         links { "stdc++" }
         defines { "LINUX64" }
 
-for idx=1, 20, 1 do
+for idx=1, 15, 1 do
     local prj = "lesson-"..string.format( "%02d", idx )
-    if not os.isdir(prj) then break end
+    if not os.isdir(prj) then
+        os.mkdir(prj)
+        file = io.open( prj .. "\\sample.cpp", "w" )
+        file:write( [[
+#include "header.h"
+           
+void do_lesson( int rows, int cols )
+{
+}
+        ]] )
+        file:close()
+    end
 
     project( prj )
         print( prj )
