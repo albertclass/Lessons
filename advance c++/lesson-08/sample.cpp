@@ -1,5 +1,4 @@
 #include "header.h"
-#include <cstdlib>
 #include "cls.h"
 
 void do_lesson( int rows, int cols )
@@ -9,6 +8,22 @@ void do_lesson( int rows, int cols )
 	printw( "下好断点准备调试。");
 
 	wait_key( 13 );
+
+	addstr( "\n------------------------------------------\n" );
+	addstr( "构造" );
+
+	cls c_1; // 此处调用默认构造函数
+
+	cls c_2( "user message" ); // 字符串自动退化为 const char* 类型
+
+	cls c_3( c_2 ); // 拷贝构造函数
+
+	c_1 = c_3; // 赋值
+
+	char *str = "user message too.";
+	cls c_4( str ); // 非 const 参数
+
+	cls c_5( std::string( "user message goon." ) ); // 右值构造
 
 	class A
 	{
@@ -85,7 +100,7 @@ void do_lesson( int rows, int cols )
 	// 隐式转换
 	A a_constructor = "委托构造";
 
-	// 禁止隐士转换的构造函数
+	// 禁止隐式转换的构造函数
 	// A a_explicit = 15;
 	A a_explicit( 15 );
 }
