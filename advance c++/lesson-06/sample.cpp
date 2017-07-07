@@ -11,20 +11,20 @@ public:
 	A() : value( sequence )
 	{
 		++sequence;
-		printw( "value = %d\n", value );
+		printf( "value = %d\n", value );
 	}
 
 	~A()
 	{
-		printw( "value = %d\n", value );
+		printf( "value = %d\n", value );
 	}
 };
 
 void do_lesson( int rows, int cols )
 {
-	printw( "堆\n" );
+	printf( "堆\n" );
 
-	printw( "堆内存分配开始调试，请准备好断点。\n“ " );
+	printf( "堆内存分配开始调试，请准备好断点。\n“ " );
 
 	wait_key( 13 );
 

@@ -94,11 +94,11 @@ void print_bit( void* data, int space[] )
 
 	while( space[i] )
 	{
-		addch( BIT_CHK(data, n) ? '1' : '0' );
+		putch( BIT_CHK(data, n) ? '1' : '0' );
 
 		if( space[i] == ++n )
 		{
-			addch( ' ' );
+			putch( ' ' );
 			++i;
 		}
 	}

@@ -6,7 +6,7 @@
 // 无法内嵌汇编，只能通过调试来看 RBP寄存器的值
 void do_lesson( int rows, int cols )
 {
-	printw( "C++多维数组\n" );
+	printf( "C++多维数组\n" );
 
 	int n[4][2] = 
 	{
@@ -25,27 +25,27 @@ void do_lesson( int rows, int cols )
 	"	{ 7, 8 },\n"
 	"};\n";
 
-	addstr( str );
+	puts( str );
 	
-	addstr( "\n----------------------\n" );
+	puts( "\n----------------------\n" );
 
 	{
 		// 计算数组所占字节数和数组长度
 		
-		printw( "array size = %d, array length = %d\n", sizeof(n), ARRAY_LENGTH(n) );
+		printf( "array size = %d, array length = %d\n", sizeof(n), ARRAY_LENGTH(n) );
 
 		wait_key( 13 );
 
 	}
 
-	addstr( "\n----------------------\n" );
+	puts( "\n----------------------\n" );
 	{
-		addstr( "数组在内存中的样子。" );
+		puts( "数组在内存中的样子。" );
 		char buf[1024];
 		bin2hex( (char*)n, sizeof(n), buf, sizeof(buf), 8 );
-		printw( "%s\n", buf );
+		printf( "%s\n", buf );
 
-		addch( '\n' );
+		putch( '\n' );
 		wait_key( 13 );
 	}
 }

@@ -66,11 +66,11 @@ void do_lesson( int rows, int cols )
     project( prj )
         print( prj )
 
-        kind "WindowedApp"
+        kind "ConsoleApp"
         location "prj/%{prj.name}"
-        includedirs { "framework", "../curses" }
-        links { "framework", "pdcurses" }
-    	systemversion "10.0.15063.0"
+        includedirs { "framework",  prj }
+        links { "framework" }
+        systemversion "10.0.15063.0"
 
         files {
             "%{prj.name}/**.h",

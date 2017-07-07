@@ -3,14 +3,14 @@
 
 void do_lesson( int rows, int cols )
 {
-	printw( "C++类\n" );
+	printf( "C++类\n" );
 
-	printw( "下好断点准备调试。");
+	printf( "下好断点准备调试。");
 
 	wait_key( 13 );
 
-	addstr( "\n------------------------------------------\n" );
-	addstr( "构造" );
+	puts( "\n------------------------------------------\n" );
+	puts( "构造" );
 
 	cls c_1; // 此处调用默认构造函数
 
@@ -43,10 +43,16 @@ void do_lesson( int rows, int cols )
 		A( const char* msg )
 			: A()
 		{
-			printw( msg );
+			printf( msg );
 		}
 
-		explicit A( int n )
+		explicit A( float f )
+			: A()
+		{
+
+		}
+
+		A( int n )
 			: A()
 		{
 			mSource = n;
@@ -101,6 +107,7 @@ void do_lesson( int rows, int cols )
 	A a_constructor = "委托构造";
 
 	// 禁止隐式转换的构造函数
-	// A a_explicit = 15;
-	A a_explicit( 15 );
+	A a_not_explicit = 'a';
+
+	A a_explicit( 15.0f );
 }

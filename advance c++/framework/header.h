@@ -1,10 +1,9 @@
 #include "config.h"
-#include "curses.h"
-#include "panel.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <cstdlib>
+#include <conio.h>
 
 #include <memory.h>
 
@@ -15,4 +14,4 @@
 #include <sstream>
 #include <iosfwd>
 
-#pragma execution_character_set("utf-8")
+// #pragma execution_character_set("utf-8")

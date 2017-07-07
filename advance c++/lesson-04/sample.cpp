@@ -4,54 +4,54 @@
 
 void do_lesson( int rows, int cols )
 {
-	printw( "ÒÆÎ»²Ù×÷\n" );
+	printf( "ÒÆÎ»²Ù×÷\n" );
 
-	addstr( "\n----------------------\n" );
+	puts( "\n----------------------\n" );
 	{
-		addstr( "Âß¼­ÒÆÎ»\n" );
+		puts( "Âß¼­ÒÆÎ»\n" );
 		// Âß¼­ÒÆÎ»
 		unsigned int i = 0x80000001;
 
 		unsigned int a = i >> 1;
 		unsigned int b = i << 1;
 
-		printw( "i = %08X, i >> 1 = %08X [", i, a );
+		printf( "i = %08X, i >> 1 = %08X [", i, a );
 
 		int sep[] = { 8, 16, 24, 32, 0 };
 		print_bit( &a, sep );
 
-		addstr( "]\n" );
+		puts( "]\n" );
 
-		printw( "i = %08X, i << 1 = %08X [", i, b );
+		printf( "i = %08X, i << 1 = %08X [", i, b );
 
 		print_bit( &b, sep );
 
-		addstr( "]\n" );
+		puts( "]\n" );
 
 		wait_key( 13 );
 	}
 
-	addstr( "\n----------------------\n" );
+	puts( "\n----------------------\n" );
 	{
-		addstr( "ËãÊıÒÆÎ»\n" );
+		puts( "ËãÊıÒÆÎ»\n" );
 		// ËãÊıÒÆÎ»
 		int i = 0x80000001;
 
 		int a = i >> 1;
 		int b = i << 1; // SAL µÈÍ¬ SHL Âß¼­×óÒÆ
 
-		printw( "i = %08X, i >> 1 = %08X [", i, a );
+		printf( "i = %08X, i >> 1 = %08X [", i, a );
 
 		int sep[] = { 8, 16, 24, 32, 0 };
 		print_bit( &a, sep );
 
-		addstr( "]\n" );
+		puts( "]\n" );
 
-		printw( "i = %08X, i << 1 = %08X [", i, b );
+		printf( "i = %08X, i << 1 = %08X [", i, b );
 
 		print_bit( &b, sep );
 
-		addstr( "]\n" );
+		puts( "]\n" );
 
 		wait_key( 13 );
 	}
