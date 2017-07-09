@@ -68,8 +68,8 @@ void do_lesson( int rows, int cols )
 		{
 			// 精度问题
 		}
-		printf( "n = %11f, hex(%08x)\n", n, n );
-		printf( "m = %11f, hex(%08x)\n", m, m );
+		printf( "n = %11f, hex(%08x)\n", n, *((uint32_t*)&n) );
+		printf( "m = %11f, hex(%08x)\n", m, *((uint32_t*)&m) );
 
 		printf( "n %c m\n", n > m ? '>' : ( n < m ? '<' : '=' ) );
 		printf( "m %c n\n", m > n ? '>' : ( m < n ? '<' : '=' ) );

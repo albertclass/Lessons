@@ -56,4 +56,3 @@ void do_lesson( int rows, int cols )
 
 	_getch();
 }
-        
