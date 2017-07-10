@@ -9,9 +9,11 @@
 
 #include "util.h"
 
-
+#include <iostream>
 #include <string>
 #include <sstream>
 #include <iosfwd>
+#include <list>
+#include <vector>
 
 // #pragma execution_character_set("utf-8")
