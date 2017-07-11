@@ -5,6 +5,7 @@
 
 class base
 {
+public:
 	base()
 	{
 		puts( "base call\n" );
@@ -18,6 +19,7 @@ class base
 
 class vbase
 {
+public:
 	vbase()
 	{
 		puts( "base call\n" );
@@ -33,7 +35,7 @@ class vbase
 template< class TBase >
 class inherit : public TBase
 {
-private:
+protected:
 	std::string message;
 
 public:
@@ -59,6 +61,17 @@ public:
 	{
 		puts( "~inherit call\n" );
 	}
+
+	virtual void show_message()const
+	{
+		puts( message.c_str() );
+	}
+
+	virtual void post_message( const char* msg )
+	{
+		message = msg;
+	}
+
 };
 
 #endif // _T_CLASS_H_
