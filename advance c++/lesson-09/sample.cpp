@@ -106,12 +106,14 @@ void do_lesson( int rows, int cols )
 
 	printf( REPEAT(10, SHOW_NUM ) "\n" );
 	getch();
-
+	
 	printf( "%d\n", MUL( 8 + 7, 10 ) );
 	getch();
 
+	// 使用宏很容易出现以下错误。宏内有三行代码，预期为不执行宏内的代码，实际只有第一行的宏代码没有执行
 	if( false )
 		SHOW_TGL( M )
 
+	// 使用do{ }while(false) 编译器会将此代码在Release版本优化掉。
 	getch();
 }

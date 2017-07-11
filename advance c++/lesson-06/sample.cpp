@@ -41,12 +41,6 @@ void do_lesson( int rows, int cols )
 	00007FF688402B64  mov         rcx,qword ptr [rbp+108h]  
 	00007FF688402B6B  call        A::A (07FF6884011E5h)  
 	00007FF688402B70  mov         qword ptr [rbp+138h],rax  
-	00007FF688402B77  jmp         do_lesson+94h (07FF688402B84h)  
-	00007FF688402B79  mov         qword ptr [rbp+138h],0  
-	00007FF688402B84  mov         rax,qword ptr [rbp+138h]  
-	00007FF688402B8B  mov         qword ptr [rbp+0E8h],rax  
-	00007FF688402B92  mov         rax,qword ptr [rbp+0E8h]  
-	00007FF688402B99  mov         qword ptr [pA],rax  
 	*/
 
 	/*
@@ -81,7 +75,10 @@ void do_lesson( int rows, int cols )
 
 	A* parrA = new A[32];
 
+	getch();
+
 	delete [] parrA;
+	getch();
 
 	// 定位 new
 	void *pmA = malloc( sizeof(A) );
@@ -93,4 +90,7 @@ void do_lesson( int rows, int cols )
 
 	// free 空指针不会崩溃
 	free( pmA );
+
+	getch();
+	// 也可以 delete ((A*))pmA;
 }

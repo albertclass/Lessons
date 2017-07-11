@@ -3,6 +3,7 @@
 
 void stack_mem_sample()
 {
+	// »º³åÇøÒç³ö
 	char astr[] = "1234567890";
 	char bstr[] = "1234567890";
 

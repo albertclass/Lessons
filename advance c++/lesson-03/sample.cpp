@@ -30,13 +30,13 @@ void do_lesson( int rows, int cols )
 	{
 		puts( "有符号数比较无符号数\n" );
 		 int32_t n = -1;
-		uint32_t m = -1;
+		uint32_t m = 4294900000;
 
 		{
 			// ERROR 数据下溢
 		}
 		printf( " int32_t n = %11d, hex(%08x)\n", n, n );
-		printf( "uint32_t m = %11d, hex(%08x)\n", m, m );
+		printf( "uint32_t m = %11u, hex(%08x)\n", m, m );
 
 		printf( "n %c m\n", n > m ? '>' : ( n < m ? '<' : '=' ) );
 		printf( "m %c n\n", m > n ? '>' : ( m < n ? '<' : '=' ) );
@@ -61,7 +61,7 @@ void do_lesson( int rows, int cols )
 
 	puts( "\n----------------------\n" );
 	{
-		puts( "浮点数比较浮点数\n" );
+		puts( "浮点数比较浮点数 - 精度问题（看代码）\n" );
 		float n = 1024.000025f;
 		float m = 1024.000024f;
 
@@ -78,7 +78,7 @@ void do_lesson( int rows, int cols )
 
 	puts( "\n----------------------\n" );
 	{
-		puts( "浮点数比较浮点数\n" );
+		puts( "浮点数比较浮点数 - 精度问题（看代码）\n" );
 		float n = 0.000012f;
 		float m = 1.0f / 80000.0f;
 		
@@ -92,4 +92,21 @@ void do_lesson( int rows, int cols )
 		printf( "m %c n\n", m > n ? '>' : ( m < n ? '<' : '=' ) );
 		wait_key( 13 );
 	}
+
+	puts( "\n----------------------\n" );
+	{
+		puts( "逻辑比较\n" );
+		char n = 0xc0;
+
+		printf( "char n = %d, hex(%08x)\n", n, n );
+
+		{
+			// ERROR 数据先转换为无符号数，再比较
+		}
+
+		bool b = n & 0xef == n ;
+		printf( "(n & 0xef) == n ? %s", b ? "true" : "false" );
+		wait_key( 13 );
+	}
+
 }
