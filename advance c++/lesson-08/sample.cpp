@@ -110,4 +110,7 @@ void do_lesson( int rows, int cols )
 	A a_not_explicit = 'a';
 
 	A a_explicit( 15.0f );
+
+	C c;
+	c.doing();
 }

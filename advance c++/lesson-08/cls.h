@@ -55,4 +55,28 @@ public:
 	}
 };
 
+class A
+{
+public:
+	void doing()
+	{
+		printf( "class A doing.\n" );
+	}
+};
+
+class B1 : virtual public A
+{
+
+};
+
+class B2 : virtual public A
+{
+
+};
+
+class C : public B1, B2
+{
+
+};
+
 #endif
