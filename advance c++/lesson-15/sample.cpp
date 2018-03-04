@@ -1,5 +1,10 @@
 #include "header.h"
 #include "TClass.h"
+#include <memory>
+#include <functional>
+#include <thread>
+#include <mutex>
+#include <future>
 
 class ClassA : public inherit< base >
 {
@@ -74,6 +79,8 @@ public:
 
 void do_lesson( int rows, int cols )
 {
+	std::unique_ptr< int, decltype(std::free) * > ptr( new int, free );
+
 	{
 		ClassA a;
 
