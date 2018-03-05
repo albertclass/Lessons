@@ -6,6 +6,8 @@
 #include <mutex>
 #include <future>
 
+using namespace std;
+using namespace std::placeholders;
 class ClassA : public inherit< base >
 {
 public:
@@ -77,10 +79,29 @@ public:
 	}
 };
 
+typedef function< void(int, int, int) > f;
+
+void f0( int p1, int p2, int p3 )
+{
+	printf( "p1 = %d, p2 = %d, p3 = %d\n", p1, p2, p3 );
+}
+
+template<typename T, typename... U>
+size_t getAddress(std::function<T(U...)> f) {
+	typedef T(fnType)(U...);
+	fnType ** fnPointer = f.template target<fnType*>();
+	return (size_t) *fnPointer;
+}
+
 void do_lesson( int rows, int cols )
 {
 	std::unique_ptr< int, decltype(std::free) * > ptr( new int, free );
 
+	auto f1 = bind( f0, 1, 2, 3 );
+	auto f2 = bind( f0, 3, 2, 1 );
+
+	//printf( "f1 = %llu\n", getAddress(f1) );
+	//printf( "f2 = %llu\n", getAddress(f2) );
 	{
 		ClassA a;
 
@@ -105,5 +126,11 @@ void do_lesson( int rows, int cols )
 		delete c;
 		delete d;
 	}
+
+	char str1[] = "12345678901234567890";
+	char str2[20];
+	char str3[20];
+
+	strncpy( str2, str1, sizeof( str2 ) );
 }
         
